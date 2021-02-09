@@ -40,6 +40,12 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/api/interviewer/**").permitAll()
 		.antMatchers("/api/groupType/**").permitAll()
 		.antMatchers("/api/group/**").permitAll()
+		.antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**").permitAll()
 		
 		.antMatchers("/api/auth/signin").permitAll()
 		.anyRequest().authenticated();
