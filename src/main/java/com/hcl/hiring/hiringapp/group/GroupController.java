@@ -25,11 +25,16 @@ public class GroupController {
 	@GetMapping("/allGroup")
 	public List<Group> getAllGroupTypes() {
 		List<Group> lst = groupService.getAllGroup();
+		for (Group group : lst) {
+			System.out.println("-----------------------" + group.getParentGroupId());
+			System.out.println("-----------------------" + group.getGroupName());
+			System.out.println("-----------------------" + group.getGroupType().getId());
+		}
 		return lst;
 	}
 	
 	@PostMapping("/group")
-	public void createGroup(@RequestBody Group group) {
+	public void createGroup(@RequestBody GroupDTO group) {
 		groupService.save(group);
 	}
 	

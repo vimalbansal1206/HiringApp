@@ -17,7 +17,13 @@ public class GroupServiceImpl implements GroupService{
 	}
 
 	@Override
-	public void save(Group group) {
+	public void save(GroupDTO groupDTO) {
+		Group group =new Group();
+		group.setGroupName(groupDTO.getGroupName());
+		GroupType  type =new GroupType();
+		type.setId(groupDTO.getGroupTypeId());
+		group.setGroupType(type);
+		group.setParentGroupId(groupDTO.getParentGroupId());
 		repo.save(group);
 		
 	}

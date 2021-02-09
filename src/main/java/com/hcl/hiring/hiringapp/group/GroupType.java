@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "group_type")
 public class GroupType {
@@ -22,6 +24,7 @@ public class GroupType {
 	private Long id;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "groupType")
+	@JsonManagedReference
 	private Set<Group> groups = new HashSet<Group>();
 	
 	@Column(name="name")

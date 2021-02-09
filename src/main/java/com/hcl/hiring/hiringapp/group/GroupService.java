@@ -6,7 +6,7 @@ public interface GroupService {
 	
 	List<Group> getAllGroup();
 	
-	void save(Group Group );
+	void save(GroupDTO Group );
 	
 	void delete(Long id);
 	
